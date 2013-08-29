@@ -3,6 +3,7 @@ class GistsController < ApplicationController
 
   def index
     @gists = current_user.gists
-    render :json => @gists
+    #render :json => @gists
+    render "index.rabl"
   end
 end
