@@ -4,8 +4,9 @@ window.GistClone = {
   Views: {},
   Routers: {},
   initialize: function() {
-    //alert('Hello from Backbone!');
-		var $rootEl = $("body");
+    console.log('Hello from Backbone!');
+		var $rootEl = $("#backbone-div");
+		console.log($rootEl)
 		var gists = new GistClone.Collections.Gists();
 		gists.fetch({
 			success: function (collection) {

@@ -1,2 +1,2 @@
-NewsReader.Models.Gist = Backbone.Model.extend({
+GistClone.Models.Gist = Backbone.Model.extend({
 });
