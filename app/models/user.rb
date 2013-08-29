@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
 
   has_many :gists
 
+  has_many :favorites
+
+  has_many :favorite_gists, through: :favorites, source: :gist
+
   def password
     @password || self.password_digest
   end
