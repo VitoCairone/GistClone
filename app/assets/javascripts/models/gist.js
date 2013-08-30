@@ -18,5 +18,21 @@ GistClone.Models.Gist = Backbone.Model.extend({
 			console.log(">>");
 		}
 		return response;
-	}
+	},
+
+	toJSON: function () {
+ 		//var json = {gist: this.attributes};
+		//return _.extend(json, {gist_file_attributes: this.get("gist_files").toJSON()});
+		return {
+			gist: {
+				title: this.get("title"),
+				gist_files_attributes: {
+					0: {
+						name: this.get("gist_files").get("name"),
+						body: this.get("gist_files").get("body")
+					}
+				}
+			}
+		}
+ 	}
 });

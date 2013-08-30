@@ -19,11 +19,6 @@ GistClone.Views.GistsIndex = Backbone.View.extend({
 		this.$el.html(this.template({ gists: this.gists }));
 		var that = this;
 		this.gists.each(function (gist) {
-			if (GistClone.Verbose) {
-				console.log("gist.toJSON");
-				console.log(gist.toJSON());
-			}
-
 			var $button = (that.$el).find("#gist-" + gist.id);
 			$button.data("id",gist.id);
  			if (gist.get("favorites").length > 0) {
