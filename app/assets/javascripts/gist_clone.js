@@ -3,6 +3,7 @@ window.GistClone = {
   Collections: {},
   Views: {},
   Routers: {},
+	Verbose: true,
   initialize: function() {
 		var $rootEl = $("#backbone-div");
 		var gists = new GistClone.Collections.Gists();

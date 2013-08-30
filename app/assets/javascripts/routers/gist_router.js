@@ -23,7 +23,7 @@ GistClone.Routers.GistRouter = Backbone.Router.extend({
 		var newGistView = new GistClone.Views.GistForm({
 			gists: this.gists,
 			favorites: this.favorites
-		});
+		}, null);
 		this.$rootEl.html(newGistView.render().$el);
 	}
 

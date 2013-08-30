@@ -2,4 +2,7 @@
 <input type="text" id="gist_title" name="gist[title]">
 <label for="gist_title">Title</for>
 <input type="submit">
+<% if (gist) { %>
+<%= gist.get("gist_files") %>
+<% } %>
 </form>
