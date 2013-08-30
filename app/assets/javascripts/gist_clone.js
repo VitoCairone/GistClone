@@ -6,6 +6,8 @@ window.GistClone = {
   initialize: function() {
 		var $rootEl = $("#backbone-div");
 		var gists = new GistClone.Collections.Gists();
+		// TODO: Instead of double fetch to generate two collections,
+		// change parse method (?) to build associated Favorite when fetched
 		gists.fetch({
 			success: function () {
 				var favorites = new GistClone.Collections.Favorites();

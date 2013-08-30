@@ -16,6 +16,7 @@
 
 
   <div>
+    <hr>
     <%= button_to "Logout", session_path, :method => "delete" %>
     <% if current_user %>
       Current User: <%= current_user.username %>
