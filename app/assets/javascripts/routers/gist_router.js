@@ -4,17 +4,19 @@ GistClone.Routers.GistRouter = Backbone.Router.extend({
 								 //												 and localhost:3000/
 	},
 
-	initialize: function ($rootEl, gists) {
+	initialize: function ($rootEl, gists, favorites) {
 		//console.log("Initialize Router");
 		//console.log($rootEl.text());
-		this.$rootEl = $rootEl
-		this.gists = gists
+		this.$rootEl = $rootEl;
+		this.gists = gists;
+		this.favorites = favorites;
 	},
 
 	index: function() {
 		//console.log("called index in router")
 		var indexView = new GistClone.Views.GistsIndex({
-			collection: this.gists
+			gists: this.gists,
+			favorites: this.favorites
 		});
 		this.$rootEl.html(indexView.render().$el);
 	}
