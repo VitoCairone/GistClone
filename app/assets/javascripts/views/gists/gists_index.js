@@ -10,6 +10,7 @@ GistClone.Views.GistsIndex = Backbone.View.extend({
 		this.favorites = collections.favorites;
 	},
 
+	//rendering
 	render: function() {
 		console.log(this.gists)
 		console.log(this.favorites)
@@ -32,6 +33,7 @@ GistClone.Views.GistsIndex = Backbone.View.extend({
 		return this;
 	},
 
+	//toggling
 	toggleFavorite: function(event) {
 		var $target = $(event.currentTarget);
 		var gist_id = $target.data("id");
