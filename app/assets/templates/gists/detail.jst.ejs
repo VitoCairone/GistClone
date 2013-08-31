@@ -3,12 +3,13 @@
   <%= gist.escape("title") %>
   </span>
   <button class="favorite-btn" id="gist-<%= gist.id %>">Favorite</button>
+  <button class="edit-btn" id="edit-gist-<%= gist.id %>">Edit</button>
   <div>
-    <!-- gistFiles are models because the parse method of the gist -->
-    <!-- model is overriden to create them -->
+    <!--
     <% var gist_files = gist.get("gist_files") %>
     <% for (var i = 0, len = gist_files.length; i < len; i++) { %>
       File [<%=i%>] Body: <%= gist_files[i].get("body") %>
     <% } %>
+    -->
   </div>
 </li>

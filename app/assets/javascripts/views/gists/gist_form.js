@@ -6,6 +6,7 @@ GistClone.Views.GistForm = Backbone.View.extend({
 	template: JST["gists/form"],
 
 	initialize: function(collections, gist) {
+		console.log(gist);
 		this.gists = collections.gists;
 		this.favorites = collections.favorites;
 		this.gist = gist;
@@ -13,6 +14,7 @@ GistClone.Views.GistForm = Backbone.View.extend({
 
 	//rendering
 	render: function() {
+		console.log(this.gist);
 		this.$el.html(this.template({ gist: this.gist }));
 		var that = this;
 		return this;

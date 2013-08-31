@@ -1,6 +1,7 @@
 GistClone.Views.GistsIndex = Backbone.View.extend({
 	events: {
 		"click .favorite-btn" : "toggleFavorite",
+		"click .edit-btn" : "edit"
 	},
 
 	template: JST["gists/index"],
@@ -26,11 +27,13 @@ GistClone.Views.GistsIndex = Backbone.View.extend({
  				$button.text("Favorite");
 				$button.addClass("action-favorite")
  			}
+
+			//also set data id on edit buttons
+			(that.$el).find("#edit-gist-" + gist.id).data("id", gist.id);
 		});
 		return this;
 	},
 
-	//toggling
 	toggleFavorite: function(event) {
 		var $target = $(event.currentTarget);
 		var gist_id = $target.data("id");
@@ -63,6 +66,13 @@ GistClone.Views.GistsIndex = Backbone.View.extend({
 			});
 
 		 } //close action if-else
+	},
+
+	edit: function(event) {
+		event.preventDefault();
+		var $target = $(event.currentTarget);
+		var gist_id = $target.data("id");
+		Backbone.history.navigate("#/gists/"+ gist_id +"/edit");
 	}
 
 });

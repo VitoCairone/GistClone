@@ -1,8 +1,12 @@
+<% console.log(gist) %>
 <form class="gist-form">
 <label for="gist_title">Title</label>
-<input type="text" id="gist_title" name="gist[title]">
-<% if (!gist || true) { %>
-<%= JST["gists/file_form_part"]({ gistFile: new GistClone.Models.GistFile() }) %>
+<input type="text" id="gist_title" name="gist[title]" value="<%=gist.escape("title")%>">
+<% if (!gist) { %>
+  <%= JST["gists/file_form_part"]({ gistFile: new GistClone.Models.GistFile() }) %>
+<% } else { %>
+  <% console.log(gist.get("gist_files")) %>
+  <%= JST["gists/file_form_part"]({ gistFile: gist.get("gist_files")[0] }) %>
 <% } %>
 <input type="submit">
 </form>
