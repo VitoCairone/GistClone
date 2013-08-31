@@ -1,7 +1,11 @@
 <% console.log(gist) %>
 <form class="gist-form">
 <label for="gist_title">Title</label>
-<input type="text" id="gist_title" name="gist[title]" value="<%=gist.escape("title")%>">
+<input type="text" id="gist_title" name="gist[title]"
+<% if (gist) { %>
+value="<%=gist.escape("title")%>"
+<% } %>
+>
 <% if (!gist) { %>
   <%= JST["gists/file_form_part"]({ gistFile: new GistClone.Models.GistFile() }) %>
 <% } else { %>
