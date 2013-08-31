@@ -13,8 +13,6 @@ GistClone.Views.GistForm = Backbone.View.extend({
 
 	//rendering
 	render: function() {
-		//console.log(this.gists)
-		//TODO: this.gist should be a single gist OR null
 		this.$el.html(this.template({ gist: this.gist }));
 		var that = this;
 		return this;
@@ -27,12 +25,10 @@ GistClone.Views.GistForm = Backbone.View.extend({
 			gist_file_name: $("input[name=gist\\[gist_file\\[name\\]\\]]").val(),
 			gist_file_body: $("textarea[name=gist\\[gist_file\\[body\\]\\]]").val(),
 		};
-		console.log(formData);
 		var new_gist_file = new GistClone.Models.GistFile({
 				name: formData.gist_file_name,
 				body: formData.gist_file_body
 		});
-		console.log(new_gist_file);
 		var new_gist = new GistClone.Models.Gist({
 			title: formData.title,
 		});
@@ -40,14 +36,12 @@ GistClone.Views.GistForm = Backbone.View.extend({
 		//but toJSON can't handle arrays
 		//in other words, Backbone doesn't allow anything to work at any time
 		new_gist.set("gist_files",new_gist_file)
-		console.log("!!!!!!!!!!");
-		console.log(new_gist.get("gist_files"));
 		var new_gist = this.gists.create(new_gist, {
 			success: function () {
 				if (GistClone.Verbose) {
 					console.log("Saved model");
 				}
-				//Backbone.history.navigate("#/");
+				Backbone.history.navigate("#/");
 			},
 			error: function() {
 				console.log("Failed to save model.");
